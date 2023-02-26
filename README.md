@@ -12,6 +12,13 @@
     - Takes json with imgurl
     - When job is done the result will be added to the result list
 
+
+## **Setup/Installation**
+- I assume that you have docker installed and a CUDA capable GPU
+- I suggest that you run everything locally first to verify that every thing works as the docker image build can take quite long
+- After running it locally for the first time, there should be a /checkpoints folder with the BLIP model
+    - So the docker container can copy it and doesnt need to download it again
+
 ## Example
 
 ### **POST /queue**
