@@ -1,0 +1,13 @@
+services:
+  caption-api:
+    ports:
+      - 5000:5000
+    tty: true
+    image: py-worker
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ['0']
+              capabilities: [gpu]
