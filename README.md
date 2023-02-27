@@ -4,13 +4,18 @@
 - Create Image Caption of Image by passing URL
 
 ## **API Endpoints**
-- **/queue GET**
+- **/captionImage GET**
     - Get job results
 
-- **/queue POST**
+- **/captionImage POST**
     - Post a job to the queue
-    - Takes json with imgurl
+    - Takes json with imgurls  (urls seperated by ',')
     - When job is done the result will be added to the result list
+
+- **/captionImageBlocking POST**
+    - Post a job to the queue
+    - Takes json with imgurls (urls seperated by ',')
+    - Waits for job to finish and returns the result in the response
 
 
 ## **Setup/Installation**
@@ -21,7 +26,7 @@
 
 ## Example
 
-### **POST /queue**
+### **POST /captionImage**
 **Request:**
 ```
 {
@@ -32,10 +37,36 @@
 ```
 {
     "id": "4fbc68319cd6491daf7451139f58b6c7",
-    "msg": "Success!"
+    "msg": "Job Started!"
 }
 ```
-### **GET /queue**
+### **POST /captionImageBlocking**
+**Request:**
+```
+{
+    "imgurl": "https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&w=1600,https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&w=1600,"
+}
+```
+**Response:**
+```
+{
+    "id": "93496917b71b44d49138cab7e4c5451d",
+    "msg": "Job finished!",
+    "result": [
+        "a black and white cat sitting in the snow",
+        "a black and white cat sitting in the snow",
+        "a black and white cat sitting in the snow",
+        "a black and white cat sitting in the snow",
+        "a black and white cat sitting in the snow",
+        "a black and white cat sitting in the snow",
+        "a black and white cat sitting in the snow",
+        "a black and white cat sitting in the snow",
+        "a black and white cat sitting in the snow",
+        "a black and white cat sitting in the snow"
+    ]
+}
+```
+### **GET /captionImage**
 **Response:**
 ```
 [

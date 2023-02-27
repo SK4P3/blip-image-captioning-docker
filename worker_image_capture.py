@@ -16,7 +16,7 @@ def init_model(device):
     )
     model.eval()
     model = model.to(device)
-    print(f"\nModel to {device}")
+    print(f"Model to {device}")
     return model
 
 
@@ -69,6 +69,11 @@ def validate_model():
 
     if not Path("checkpoints/model_large_caption.pth").is_file():
         download_checkpoint()
+
+
+def chunks(lst, n):
+    for i in range(0, len(lst), n):
+        yield lst[i:i + n]
 
 
 def caption_image(gpu_id, images):
