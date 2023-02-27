@@ -9,12 +9,12 @@
 
 - **/captionImage POST**
     - Post a job to the queue
-    - Takes json with imgurls  (urls seperated by ',')
+    - Takes json with imgurls: ['url1', 'url2', ...]
     - When job is done the result will be added to the result list
 
 - **/captionImageBlocking POST**
     - Post a job to the queue
-    - Takes json with imgurls (urls seperated by ',')
+    - Takes json with "imgurls": ['url1', 'url2', ...]
     - Waits for job to finish and returns the result in the response
 
 
@@ -30,7 +30,7 @@
 **Request:**
 ```
 {
-    "imgurl": "https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&w=1600"
+    "imgurl": ["https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&w=1600"]
 }
 ```
 **Response:**
@@ -44,7 +44,7 @@
 **Request:**
 ```
 {
-    "imgurl": "https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&w=1600,https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&w=1600,"
+    "imgurl": ["https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&w=1600", "https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&w=1600"]
 }
 ```
 **Response:**

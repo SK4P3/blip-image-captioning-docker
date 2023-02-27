@@ -67,10 +67,9 @@ def captionImage():
         data: json = request.get_json()
 
         if (not 'imgurls' in data ):
-            return "Please specify image urls, seperated by ','!"
+            return "Please specify image urls"
         
-        urls = [ url for url in str(data['imgurls']).split(',') if len(url) > 0 ]
-        print(urls)
+        urls = data['imgurls']
 
         responses = [requests.get(url) for url in urls]
         imgs = [Image.open(BytesIO(response.content)) for response in responses]
@@ -92,9 +91,9 @@ def captionImageBlocking():
         data: json = request.get_json()
 
         if (not 'imgurls' in data ):
-            return "Please specify image urls, seperated by ','!"
+            return "Please specify image urls!"
         
-        urls = [ url for url in str(data['imgurls']).split(',') if len(url) > 0 ]
+        urls = data['imgurls']
 
         responses = [requests.get(url) for url in urls]
         imgs = [Image.open(BytesIO(response.content)) for response in responses]
